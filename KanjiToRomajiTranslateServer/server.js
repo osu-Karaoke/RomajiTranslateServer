@@ -8,13 +8,14 @@ var port = process.env.PORT || 1337;
 http.createServer(function (req, res) {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
 
-    var kuroshiro = require("kuroshiro");
+    var kuroshiro = require("./src/kuroshiro");
     kuroshiro.init(function (err) {
         // kuroshiro is ready
-        var result = kuroshiro.convert('感じ取れたら手を繋ごう、重なるのは人生のライン and レミリア最高！');
+        var result = kuroshiro.convert('感じ取れたら手を繋ごう、重なるのは人生のライン and レミリア最高！', { mode: 'okurigana', to: 'romaji' });
         console.log(result);
-        console.log('測試輸出中文');
+        
+        res.end(result);
     });
 
-    res.end('Hello World\n');
+   
 }).listen(port);
