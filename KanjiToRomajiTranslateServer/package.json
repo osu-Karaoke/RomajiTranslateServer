@@ -1,0 +1,12 @@
+{
+  "name": "kanji-to-romaji-translate-server",
+  "version": "0.0.0",
+  "description": "KanjiToRomajiTranslateServer",
+  "main": "server.js",
+  "author": {
+    "name": "andy840119"
+  },
+  "dependencies": {
+    "kuroshiro": "^0.2.1"
+  }
+}
