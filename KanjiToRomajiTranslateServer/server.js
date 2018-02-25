@@ -2,6 +2,7 @@
 var http = require('http');
 var port = process.env.PORT || 1337;
 
+//translate engine : https://github.com/hexenq/kuroshiro.js
 
 //建了一個萌萌耷的Server
 http.createServer(function (req, res) {
