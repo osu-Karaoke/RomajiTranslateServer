@@ -11,7 +11,8 @@ http.createServer(function (req, res) {
     var kuroshiro = require("./src/kuroshiro");
     kuroshiro.init(function (err) {
         // kuroshiro is ready
-        var result = kuroshiro.convert('感じ取れたら手を繋ごう、重なるのは人生のライン and レミリア最高！', { mode: 'okurigana', to: 'romaji' });
+        //var result = kuroshiro.toApiFormat('感じ取れたら手を繋ごう、重なるのは人生のライン and レミリア最高！', { mode: 'okurigana', to: 'romaji' });
+        var result = kuroshiro.toApiFormat('感じ取れたら手を繋ごう、重なるのは人生のライン and レミリア最高！', { mode: 'okurigana', to: 'romaji' });
         console.log(result);
         
         res.end(result);
