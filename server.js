@@ -6,6 +6,8 @@ var Http = require('http'),
 
 var port = process.env.PORT || 1337;
 
+var url = require('url');
+
 var BodyParser = require('body-parser');
 
 //restful api 教學 : https://nodejust.com/node-js-restful-api-tutorial/
@@ -67,3 +69,41 @@ function translateJp(request, response) {
     });
 }
 router.get('/translate/jp/:id', translateJp);
+
+
+//第二隻API喵
+function translateJp(request, response) {
+
+    //translate string
+    var queryData = url.parse(request.url, true).query;
+
+    var listTranslate = queryData.str;
+
+    //translate engine : https://github.com/hexenq/kuroshiro.js
+    var kuroshiro = require("./src/kuroshiro");
+    kuroshiro.init(function (err) {
+
+        var listResult = [];
+
+        for (var i = 0; i < listTranslate.length; i++) {
+            // translate to api format
+            var result = kuroshiro.toApiFormat(listTranslate[i]);
+
+            listResult.push(result);
+        }
+
+        //轉換成json格式輸出
+        var jsonString = JSON.stringify(listResult);
+
+        //console.log(jsonString);
+
+        //header
+        response.writeHead(201, {
+            'Content-Type': 'text/plain; charset=utf-8'
+        });
+
+        //body
+        response.end(jsonString);
+    });
+}
+router.get('/translate/jp/list:id', translateJp);
