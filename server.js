@@ -79,7 +79,9 @@ function translateJpMultiSentence(request, response) {
     //translate string
     var queryData = url.parse(request.url, true).query;
 
-    var listTranslate = queryData.str;
+    var listStr = queryData.str;
+
+    var listTranslate = (typeof listStr !== 'string') ? listStr : [ listStr ];
 
     //translate engine : https://github.com/hexenq/kuroshiro.js
     var kuroshiro = require("./src/kuroshiro");
