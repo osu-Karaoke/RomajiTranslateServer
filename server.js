@@ -89,7 +89,13 @@ function translateJp(request, response) {
             // translate to api format
             var result = kuroshiro.toApiFormat(listTranslate[i]);
 
-            listResult.push(result);
+            var sentence =
+            {
+                    Index: i,
+                    Result :result,
+            }
+
+            listResult.push(sentence);
         }
 
         //轉換成json格式輸出
