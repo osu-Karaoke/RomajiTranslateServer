@@ -1,10 +1,28 @@
 {
   "name": "kanji-to-romaji-translate-server",
   "version": "0.0.0",
-  "description": "KanjiToRomajiTranslateServer",
+  "description": "Kanji To Romaji translate server",
   "main": "server.js",
   "author": {
-    "name": "andy840119"
+    "name": "andy840119",
+    "url": "https://github.com/osu-Karaoke/RomajiTranslateServer"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osu-Karaoke/RomajiTranslateServer"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Romaji",
+    "Node.js",
+    "Translate",
+    "Japanese"
+  ],
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
   },
   "dependencies": {
     "browserify": "^15.2.0",
