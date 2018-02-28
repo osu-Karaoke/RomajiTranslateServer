@@ -32,6 +32,7 @@ server = Http.createServer(function (request, response) {
 
 router.use(BodyParser.text());
 
+/*
 //translate japanese
 function translateJp(request, response) {
 
@@ -69,10 +70,11 @@ function translateJp(request, response) {
     });
 }
 router.get('/translate/jp/:id', translateJp);
+*/
 
 
 //第二隻API喵
-function translateJp(request, response) {
+function translateJpMultiSentence(request, response) {
 
     //translate string
     var queryData = url.parse(request.url, true).query;
@@ -112,4 +114,4 @@ function translateJp(request, response) {
         response.end(jsonString);
     });
 }
-router.get('/translate/jp/list:id', translateJp);
+router.get('/translate/jp/list', translateJpMultiSentence);
